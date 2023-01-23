@@ -37,9 +37,13 @@ func init() {
 		})
 	}
 
-	gin.SetMode(gin.ReleaseMode)
-	// r := gin.Default()
-	r = gin.New()
+	_, isRelease := os.LookupEnv("RELEASE")
+	if isRelease {
+		gin.SetMode(gin.ReleaseMode)
+		r = gin.New()
+	} else {
+		r := gin.Default()
+	}
 }
 
 func main() {
