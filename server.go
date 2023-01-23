@@ -42,7 +42,7 @@ func init() {
 		gin.SetMode(gin.ReleaseMode)
 		r = gin.New()
 	} else {
-		r := gin.Default()
+		r = gin.Default()
 	}
 }
 
